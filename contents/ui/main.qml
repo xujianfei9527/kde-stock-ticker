@@ -57,14 +57,18 @@ PlasmoidItem {
         return "#d0d7de";
     }
 
-    function badgeText() {
+    function compactBadgeText() {
         if (loading) {
-            return "--";
+            return "Loading";
         }
         if (errorText.length > 0) {
             return "err";
         }
-        return fmtPct(quote.changePct);
+        var price = fmtPrice(quote.price);
+        var pct = fmtPct(quote.changePct);
+        return "<span style='color:" + quoteColor() + "'>" + price + "</span>"
+             + "&nbsp;"
+             + "<span style='color:" + quoteColor() + "; font-size: 13px;'>" + pct + "</span>";
     }
 
     function updateQuoteFromJson(text) {
@@ -140,35 +144,32 @@ PlasmoidItem {
 
     compactRepresentation: Item {
         id: compactRoot
-        implicitWidth: 80
-        implicitHeight: 28
+        implicitWidth: 100
+        implicitHeight: 32
         width: implicitWidth
         height: implicitHeight
-        Layout.minimumWidth: 80
-        Layout.preferredWidth: 80
-        Layout.maximumWidth: 80
-        Layout.minimumHeight: 28
-        Layout.preferredHeight: 28
-        Layout.maximumHeight: 28
+        Layout.minimumWidth: 100
+        Layout.preferredWidth: 100
+        Layout.maximumWidth: 100
+        Layout.minimumHeight: 32
+        Layout.preferredHeight: 32
+        Layout.maximumHeight: 32
 
         Rectangle {
             id: badge
             anchors.fill: parent
-            radius: 10
+            radius: 11
             color: "#202833"
             border.width: 1
             border.color: root.quoteColor()
-            implicitWidth: 80
-            implicitHeight: 28
 
             PlasmaComponents.Label {
-                id: badgeText
                 anchors.fill: parent
-                anchors.margins: 8
-                text: root.badgeText()
+                anchors.margins: 6
+                text: root.compactBadgeText()
+                textFormat: Text.RichText
                 font.pixelSize: 14
                 font.bold: true
-                color: root.quoteColor()
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideNone
