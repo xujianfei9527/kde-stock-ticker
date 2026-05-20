@@ -7,12 +7,12 @@
       }
     ],
     "Category": "System Information",
-    "Description": "Show a real-time A-share quote in the Plasma panel",
+    "Description": "A lightweight Plasma 6 panel widget for tracking a single real-time A-share quote",
     "Icon": "view-finance-currency",
     "Id": "com.evan.stockticker",
     "Name": "Stock Ticker",
     "Version": "1.0",
-    "Website": "https://example.com"
+    "Website": ""
   },
   "X-Plasma-API-Minimum-Version": "6.0",
   "KPackageStructure": "Plasma/Applet"
