@@ -1,0 +1,19 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Email": "evan@example.com",
+        "Name": "Evan"
+      }
+    ],
+    "Category": "System Information",
+    "Description": "Show a real-time A-share quote in the Plasma panel",
+    "Icon": "view-finance-currency",
+    "Id": "com.evan.stockticker",
+    "Name": "Stock Ticker",
+    "Version": "1.0",
+    "Website": "https://example.com"
+  },
+  "X-Plasma-API-Minimum-Version": "6.0",
+  "KPackageStructure": "Plasma/Applet"
+}
