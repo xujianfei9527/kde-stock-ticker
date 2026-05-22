@@ -188,7 +188,15 @@ PlasmoidItem {
     fullRepresentation: Rectangle {
         id: panel
         implicitWidth: 420
-        implicitHeight: 260
+        implicitHeight: Math.max(detailsColumn.implicitHeight + 56, 344)
+        width: detailsColumn.implicitWidth + 32
+        height: implicitHeight
+        Layout.minimumWidth: width
+        Layout.preferredWidth: width
+        Layout.maximumWidth: width
+        Layout.minimumHeight: height
+        Layout.preferredHeight: height
+        Layout.maximumHeight: height
         radius: 18
         color: "#202833"
         border.width: 1
@@ -199,13 +207,14 @@ PlasmoidItem {
         }
 
         ColumnLayout {
+            id: detailsColumn
             anchors.fill: parent
             anchors.margins: 20
             spacing: 14
 
             RowLayout {
                 Layout.fillWidth: true
-                spacing: 12
+                spacing: 10
 
                 ColumnLayout {
                     Layout.fillWidth: true
@@ -238,7 +247,7 @@ PlasmoidItem {
             GridLayout {
                 Layout.fillWidth: true
                 columns: 2
-                rowSpacing: 12
+                rowSpacing: 14
                 columnSpacing: 24
 
                 PlasmaComponents.Label { text: "Price"; color: "#95a4ba" }
